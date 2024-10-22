@@ -1,38 +1,25 @@
-#include<stdio.h>
-#include<stdlib.h>
-
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
 
 int main(void) {
-    int X, N = 0;
-    int result = 0;
-    scanf_s("%d", &X);
-    scanf_s("%d", &N);
+    int grade;
 
-    int* price = (int*)malloc(N * sizeof(int));
-    int* ea = (int*)malloc(N * sizeof(int));
+    scanf("%d", &grade);
 
-    if (price == NULL || ea == NULL) {
-        printf("메모리 할당 실패");
-        return 1;
+    if (grade >= 90 && grade <= 100) {
+        printf("A");
     }
-
-    for (int i = 0; i < N; i++) {
-        scanf_s("%d %d", &price[i], &ea[i]);
+    else if (grade >= 80 && grade <= 89) {
+        printf("B");
     }
-    for (int i = 0; i < N; i++) {
-        result += price[i] * ea[i];
+    else if (grade >= 70 && grade <= 79) {
+        printf("C");
     }
-    if (result == X) {
-        printf("Yes");
+    else if (grade >= 60 && grade <= 69) {
+        printf("D");
     }
     else {
-        printf("No");
+        printf("F");
     }
-
-    free(price);
-    free(ea);
-
     return 0;
-
-
 }
